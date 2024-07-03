@@ -1,6 +1,8 @@
+import pytest
 from django.urls import reverse
 
 
+@pytest.mark.django_db
 def test_views_GET(client) -> None:
     test_cases = [
         ("blog-index", 200),
