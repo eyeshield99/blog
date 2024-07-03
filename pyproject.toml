@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "python-setup-template"
+version = "0.1.0"
+description = "Python projects scaffold"
+authors = ["Chester Jeff Ancheta <cjancheta@usm.edu.ph>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^8.2.2"
+pytest-cov = "^5.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
