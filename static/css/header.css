@@ -1,0 +1,306 @@
+.header-top-container {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #7b1222;
+  padding: 0.5rem;
+}
+
+.header-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  color: white;
+  font-family: "RobotoCondensed", Sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-align: center;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+}
+
+.header-btn-login {
+  font-family: "RobotoCondensed", Sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  background-color: #7b1222;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #fff;
+}
+
+.header-btn-login:hover {
+  background-color: #fff;
+  color: #7b1222;
+  cursor: pointer;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-inline: 3rem;
+  width: 100%;
+}
+
+header {
+  position: sticky;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  background: #1b325f;
+  width: 100%;
+  min-height: 80px;
+  top: 0;
+  margin-top: 0.1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 5;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .logo {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+header ul {
+  position: relative;
+}
+
+header ul li {
+  position: relative;
+  list-style: none;
+  float: left;
+}
+
+header ul li a {
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  font-family: "KorolevBold", Sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.6px;
+}
+
+header ul li>a:hover {
+  border-top: 2px solid white;
+}
+
+header ul li>a {
+  border-top: 2px solid transparent;
+}
+
+header ul li ul {
+  position: absolute;
+  left: 0;
+  width: 230px;
+  background: white;
+  display: none;
+}
+
+header ul li ul.show {
+  display: block
+}
+
+header ul li ul li {
+  position: relative;
+  width: 100%;
+}
+
+header ul li i {
+  margin: auto 0;
+  padding: 0 0 5px 5px;
+}
+
+header ul li ul li a {
+  color: #1b325f;
+  font-family: "RobotoCondensed", sans-serif;
+  letter-spacing: 0.6px;
+}
+
+header ul li ul li a:hover {
+  background: #7b1222;
+  color: white;
+}
+
+header ul li ul li ul {
+  top: 0;
+  left: 230px;
+}
+
+.btn {
+  text-decoration: none;
+  margin: 10px;
+}
+
+.btn-register {
+  padding: 10px 15px;
+  font-family: "KorolevBold", Sans-serif;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  border: 1px white solid;
+  cursor: pointer;
+  transition: 0.3s ease, color 0.3s ease;
+}
+
+.btn-register:hover {
+  background-color: #7b1222;
+  color: white;
+}
+
+.btn-register-mobile {
+  display: none;
+}
+
+@media (width <=1200px) {
+  .header-wrapper {
+    margin-inline: 0;
+  }
+
+  header {
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+
+  header nav {
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    left: 0;
+    background: white;
+    display: none;
+  }
+
+  header.active nav {
+    display: initial;
+  }
+
+  header nav ul li {
+    width: 100%;
+  }
+
+  header nav ul li a {
+    color: #1b325f;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+  }
+
+  header ul li a:hover {
+    background: #7b1222;
+    color: white;
+  }
+
+  header nav ul li ul {
+    position: relative;
+    width: 100%;
+    left: 8px;
+  }
+
+  header ul li ul li ul {
+    top: 0;
+    left: 8px;
+  }
+
+  header nav ul li:hover ul li {
+    background: white;
+  }
+
+  .with-sub i {
+    transform: rotate(90deg);
+  }
+
+  .submenu.show {
+    display: block;
+  }
+
+  header nav.open {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 0 solid;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+  }
+
+  .menu-toggle i {
+    line-height: 33px;
+  }
+
+  .menu-toggle:hover {
+    background-color: white;
+    color: #7b1222;
+  }
+
+  .btn-register {
+    display: none;
+  }
+
+  .btn-register-link {
+    display: none;
+  }
+
+  .btn-register-mobile {
+    display: inline-block;
+  }
+
+  nav {
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+}
+
+@media (width > 1200px) {
+  header ul li:hover>ul {
+    display: block;
+  }
+}
+
+.authenticated {
+  display: flex;
+  gap: 1rem;
+}
+
+.submenu a {
+  padding: 10px 25px;
+  border-top: 0 !important;
+}
+
+.submenu li:not(:last-child) a {
+  border-bottom: 1px solid gainsboro;
+}
+
+@media (min-width: 768px) {
+  .header-top {
+    flex-direction: row;
+    gap: 5rem;
+  }
+}
