@@ -1,1 +1,126 @@
-Blog Detail Page
+{% extends "layouts/base.html" %}
+{% load markdown_extras %}
+{% load static %}
+{% block title %}
+  Blog
+{% endblock title %}
+{% block extracss %}
+  <link rel="stylesheet" href="{% static 'css/news_detail.css' %}">
+{% endblock extracss %}
+{% block content %}
+  <main>
+    <section class="hero-news-section">
+      <div class="hero-news container-lg">
+        <div class="hero-image">
+          {% if blog.image %}
+            <img src="{{ blog.image.url }}"
+                 alt="{{ member.name }}"
+                 width="100%"
+                 height="auto">
+          {% endif %}
+        </div>
+        <div class="hero-text">
+          <div class="breadcrumbs">
+            <a href="{% url 'home' %}">Home</a> <a href="{% url 'blog-index' %}">> Blog</a> > {{ blog.title }}
+          </div>
+          <h1 class="news-detail-title">{{ blog.title }}</h1>
+          <p class="news-detail-pubdate">{{ blog.pub_date|date:"F d, Y" }}</p>
+        </div>
+      </div>
+    </section>
+    <section class="blog-content container-lg">
+      <div class="blog-text">{{ blog.content | markdown | safe }}</div>
+      <div class="sidebar">
+        <div class="socialmedia">
+          <h2>Share:</h2>
+          <div class="icons">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?url={{ request.build_absolute_uri }}"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.reddit.com/submit?url={{ request.build_absolute_uri }}"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fab fa-reddit" aria-hidden="true"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20link:%20{{ request.build_absolute_uri }}"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="mailto:?subject=Check%20out%20this%20link&body=I%20thought%20you%20might%20find%20this%20interesting:%20{{ request.build_absolute_uri }}">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+            <a href="https://vk.com/share.php?url={{ request.build_absolute_uri }}"
+               target="_blank"
+               rel="noopener noreferrer">
+              <i class="fab fa-vk" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="morepost">
+          <h2>More Posts</h2>
+          <div class="morepost-flex">
+            {% for more_blog in more_blogs %}
+              <div class="morepost-item">
+                <img src="{{ more_blog.image.url }}"
+                     alt="{{ more_blog.title }}"
+                     width="auto"
+                     height="auto">
+                <div class="morepost-text">
+                  <h3>
+                    <a href="{% url 'blog-detail' slug=more_blog.slug %}">{{ more_blog.title }}</a>
+                  </h3>
+                  <p>{{ more_blog.content|truncatewords:25 }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pagination-section">
+      <div class="pagination container-lg">
+        <div class="previous">
+          {% if prev_blog %}
+            <a href="{% url 'blog-detail' slug=prev_blog.slug %}">
+              <div class="pagebtn">
+                <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                <span>
+                  <div class="pagebtn-prev">
+                    <h4>Previous</h4>
+                    <p>{{ prev_blog.title }}</p>
+                  </div>
+                </span>
+              </div>
+            </a>
+          {% endif %}
+        </div>
+        <div class="next">
+          {% if next_blog %}
+            <a href="{% url 'blog-detail' slug=next_blog.slug %}">
+              <div class="pagebtn">
+                <div class="pagebtn-next">
+                  <h4>Next</h4>
+                  <p>{{ next_blog.title }}</p>
+                </div>
+                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+              </div>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock content %}
