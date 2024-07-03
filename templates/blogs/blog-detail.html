@@ -5,7 +5,7 @@
   Blog
 {% endblock title %}
 {% block extracss %}
-  <link rel="stylesheet" href="{% static 'css/news_detail.css' %}">
+  <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
 {% endblock extracss %}
 {% block content %}
   <main>
@@ -21,7 +21,7 @@
         </div>
         <div class="hero-text">
           <div class="breadcrumbs">
-            <a href="{% url 'home' %}">Home</a> <a href="{% url 'blog-index' %}">> Blog</a> > {{ blog.title }}
+            <a href="{% url 'blog-index' %}">Blog</a> > {{ blog.title }}
           </div>
           <h1 class="news-detail-title">{{ blog.title }}</h1>
           <p class="news-detail-pubdate">{{ blog.pub_date|date:"F d, Y" }}</p>
@@ -74,10 +74,12 @@
           <div class="morepost-flex">
             {% for more_blog in more_blogs %}
               <div class="morepost-item">
-                <img src="{{ more_blog.image.url }}"
-                     alt="{{ more_blog.title }}"
-                     width="auto"
-                     height="auto">
+                {% if more_blog.image %}
+                  <img src="{{ more_blog.image.url }}"
+                       alt="{{ more_blog.title }}"
+                       width="auto"
+                       height="auto">
+                {% endif %}
                 <div class="morepost-text">
                   <h3>
                     <a href="{% url 'blog-detail' slug=more_blog.slug %}">{{ more_blog.title }}</a>

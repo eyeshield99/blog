@@ -10,7 +10,6 @@ def blog_index_page(request: HttpRequest) -> HttpResponse:
     paginator = Paginator(blogs, 9)
     page_number = request.GET.get("page")
     blogslist = paginator.get_page(page_number)
-    print(blogslist)
     return render(request, "blogs/index.html", {"blogslist": blogslist})
 
 
