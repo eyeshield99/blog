@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "python-setup-template"
+name = "blog"
 version = "0.1.0"
-description = "Python projects scaffold"
+description = "Chester Jeff Ancheta blogs"
 authors = ["Chester Jeff Ancheta <cjancheta@usm.edu.ph>"]
 readme = "README.md"
 
@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.11"
 pytest = "^8.2.2"
 pytest-cov = "^5.0.0"
+django = "^5.0.6"
 
 
 [build-system]

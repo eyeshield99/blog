@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/windows,linux,macos,python,visualstudiocode,intellij+all,sublimetext,virtualenv
-# Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,macos,python,visualstudiocode,intellij+all,sublimetext,virtualenv
+# Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,visualstudiocode,sublimetext,intellij+all,python,virtualenv
+# Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,visualstudiocode,sublimetext,intellij+all,python,virtualenv
 
 ### Intellij+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -399,4 +399,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,python,visualstudiocode,intellij+all,sublimetext,virtualenv
+# End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,visualstudiocode,sublimetext,intellij+all,python,virtualenv
+
+# Custom
+staticfiles/
+media/

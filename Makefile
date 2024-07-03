@@ -3,3 +3,18 @@ test:
 
 pc:
 	poetry run pre-commit run --all-files
+
+run:
+	@python manage.py runserver
+
+cs:
+	@python manage.py collectstatic --noinput
+
+mm:
+	@python manage.py makemigrations
+
+migrate:
+	@python manage.py migrate
+
+csu:
+	@python manage.py createsuperuser
