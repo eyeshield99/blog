@@ -404,3 +404,7 @@ $RECYCLE.BIN/
 # Custom
 staticfiles/
 media/
+tailwindcss.exe
+# static/css/styles.css
+# Added for those who use MacOS or Linux
+tailwindcss
