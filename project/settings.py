@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third-party
+    "corsheaders",
+    "storages",
     # Local
     "blogs",
 ]
@@ -109,12 +112,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = "/static/"
 
 if DEBUG:
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+    STATIC_URL = "/static/"
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
@@ -130,7 +133,41 @@ if DEBUG:
         },
     }
 
+else:
+    # DigitalOcean
+    AWS_ACCESS_KEY_ID = env.str("DO_SPACES_ACCESS_KEY", default="")
+    AWS_SECRET_ACCESS_KEY = env.str("DO_SPACES_SECRET_KEY", default="")
+    AWS_STORAGE_BUCKET_NAME = env.str("DO_SPACES_STORAGE_BUCKET", default="blog-assets")
+    AWS_S3_REGION_NAME = env.str("AWS_S3_REGION_NAME", default="sfo3")
+    AWS_S3_ENDPOINT_URL = env.str(
+        "DO_SPACES_ENDPOINT_URL",
+        default="https://blog-assets.sfo3.digitaloceanspaces.com",
+    )
+    AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
+    AWS_DEFAULT_ACL = "public-read"
+    AWS_STATIC_LOCATION = "static/"
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+    STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_STATIC_LOCATION}"
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+    AWS_MEDIA_LOCATION = "blog-media/"
+    PUBLIC_MEDIA_LOCATION = "blog-media"
+    MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{AWS_MEDIA_LOCATION}"
+    STORAGES = {
+        "default": {
+            "BACKEND": "project.storage_backends.MediaStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "project.storage_backends.StaticStorage",
+        },
+    }
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SITE_ID = 1
+
+# CORS
+CORS_ALLOW_ALL_ORIGINS = True

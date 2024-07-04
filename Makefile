@@ -21,3 +21,6 @@ csu:
 
 tw-watch:
 	@./tailwindcss -i ./static/css/input.css -o ./static/css/styles.css --watch
+
+requirements:
+	@poetry export -f requirements.txt --output requirements.txt --without-hashes
