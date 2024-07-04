@@ -8,4 +8,4 @@ class StaticStorage(S3Boto3Storage):
 
 class MediaStorage(S3Boto3Storage):
     location = ""
-    bucket_name = "media"
+    bucket_name = "blog-media"

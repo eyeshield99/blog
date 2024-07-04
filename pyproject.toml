@@ -19,6 +19,8 @@ gunicorn = "^22.0.0"
 boto3 = "^1.34.139"
 django-storages = "^1.14.3"
 django-cors-headers = "^4.4.0"
+psycopg = "^3.2.1"
+psycopg-binary = "^3.2.1"
 
 
 [build-system]

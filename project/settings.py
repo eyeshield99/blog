@@ -138,10 +138,10 @@ else:
     AWS_ACCESS_KEY_ID = env.str("DO_SPACES_ACCESS_KEY", default="")
     AWS_SECRET_ACCESS_KEY = env.str("DO_SPACES_SECRET_KEY", default="")
     AWS_STORAGE_BUCKET_NAME = env.str("DO_SPACES_STORAGE_BUCKET", default="blog-assets")
-    AWS_S3_REGION_NAME = env.str("AWS_S3_REGION_NAME", default="sfo3")
+    AWS_S3_REGION_NAME = env.str("AWS_S3_REGION_NAME", default="sgp1")
     AWS_S3_ENDPOINT_URL = env.str(
         "DO_SPACES_ENDPOINT_URL",
-        default="https://blog-assets.sfo3.digitaloceanspaces.com",
+        default="https://chester-assets.sgp1.digitaloceanspaces.com",
     )
     AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
     AWS_DEFAULT_ACL = "public-read"
