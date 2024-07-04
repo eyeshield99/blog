@@ -10,23 +10,14 @@
         Blog
       {% endblock title %}
     </title>
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&family=Prata&display=swap" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     {% block extracss %}
     {% endblock extracss %}
   </head>
-  <body>
-    {% include "partials/header.html" %}
-    <div class="container mt-4">
-      {% block content %}
-      {% endblock content %}
-    </div>
-    {% include "partials/footer.html" %}
+  <body class="bg-base-100 text-base-content antialiased tracking-wide">
+    {% block content %}
+    {% endblock content %}
   </body>
 </html>

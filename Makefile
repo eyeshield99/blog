@@ -18,3 +18,6 @@ migrate:
 
 csu:
 	@python manage.py createsuperuser
+
+tw-watch:
+	@./tailwindcss -i ./static/css/input.css -o ./static/css/styles.css --watch

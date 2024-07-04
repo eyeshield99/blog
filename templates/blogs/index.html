@@ -1,52 +1,53 @@
 {% extends "layouts/base.html" %}
 {% load static %}
 {% block title %}
-  Blogs
+  Chester Blogs
 {% endblock title %}
-{% block extracss %}
-  <link rel="stylesheet" href="{% static 'css/blog_index.css' %}">
-{% endblock extracss %}
 {% block content %}
-  <section class="container-lg">
-    <div class="news-flex">
-      <h2>LATEST NEWS</h2>
-      <div class="card-flex">
+  <main>
+    <section class="md:flex-row gap-y-5 lg:p-10 2xl:p-16 bg-primary md:justify-between flex flex-col items-center p-5 py-8 text-center">
+      <h1 class="lg:text-5xl font-serif text-3xl">Chester Blogs</h1>
+    </section>
+    <section class="px-5 md:px-8 py-16">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:px-20 lg:gap-x-8 gap-y-8">
         {% for blog in blogslist %}
-          <div class="card">
+          <div class="relative grid border border-accent">
             {% if blog.image %}
-              <img src="{{ blog.image.url }}"
-                   alt="{{ member.name }}"
-                   height="auto"
-                   width="100%">
+              <a href="#" class="group aspect-[3/2] relative">
+                <img src="{{ blog.image.url }}"
+                     alt="{{ member.name }}"
+                     class="object-cover w-full h-auto"
+                     width="100"
+                     height="auto" />
+              </a>
             {% endif %}
-            <div class="card-content">
-              <div class="preview">
-                <a href="{% url 'blog-detail' slug=blog.slug %}">
-                  <h3 class="news-title">{{ blog.title }}</h3>
-                </a>
-                <p>{{ blog.content|truncatewords:25 }}</p>
-                <a href="{% url 'blog-detail' slug=blog.slug %}">
-                  <span>Read More »</span>
-                </a>
-              </div>
-              <div class="pubdate">
-                <span class="news-pubdate">{{ blog.pub_date|date:"F d, Y" }}</span>
+            <div class="p-5 space-y-3 bg-base-100 sm:py-10">
+              <a href="{% url 'blog-detail' slug=blog.slug %}"
+                 class="font-serif text-xl hover:text-accent">{{ blog.title }}</a>
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="currentColor"
+                     class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span>{{ blog.pub_date|date:"F d, Y" }}</span>
               </div>
             </div>
           </div>
         {% endfor %}
       </div>
-      <div class="pagination container-lg">
-        <div class="pagenumber">
-          {% for num in blogslist.paginator.page_range %}
-            {% if num == blogslist.number %}
-              <span class="current">{{ num }}</span>
-            {% else %}
-              <a href="?page={{ num }}">{{ num }}</a>
-            {% endif %}
-          {% endfor %}
-        </div>
+      <div class="flex justify-center item-center gap-5 text-lg font-serif mt-8 ">
+        {% for num in blogslist.paginator.page_range %}
+          {% if num == blogslist.number %}
+            <span class="underline decoration-accent">{{ num }}</span>
+          {% else %}
+            <a href="?page={{ num }}" class="hover:text-accent">{{ num }}</a>
+          {% endif %}
+        {% endfor %}
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 {% endblock content %}
