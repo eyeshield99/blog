@@ -23,6 +23,10 @@ class Blog(models.Model):
         unique=True,
         blank=True,
     )
+    views = models.IntegerField(
+        "Views",
+        default=0,
+    )
 
     def __str__(self):
         return self.title

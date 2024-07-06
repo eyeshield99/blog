@@ -24,13 +24,17 @@ def blog_detail_page(request, slug):
         Blog.objects.filter(pub_date__lt=blog.pub_date).order_by("-pub_date").first()
     )
 
-    # Get more blogs for the "More Blogs" section
-    more_blogs = Blog.objects.exclude(id=blog.id).order_by("-pub_date")[:4]
+    # Update the views count
+    blog.views += 1
+    blog.save()
+
+    # Get popular blogs for the Popular Posts Section
+    popular_blogs = Blog.objects.order_by("-views")[:4]
 
     context = {
         "blog": blog,
         "next_blog": next_blog,
         "prev_blog": prev_blog,
-        "more_blogs": more_blogs,
+        "popular_blogs": popular_blogs,
     }
     return render(request, "blogs/blog-detail.html", context)
