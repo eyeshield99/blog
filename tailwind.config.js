@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#11603C",
+        primary: "#1E3A5F",
         secondary: "#2A2A2A",
-        accent: "#88AF9D",
+        accent: "#7FA7B8",
         "base-100": "#0A0A0B",
         "base-content": "#F6F6F6",
       },
@@ -17,8 +17,8 @@ module.exports = {
         height: "height",
       },
       fontFamily: {
-        sans: ['"Lato"', ...defaultTheme.fontFamily.sans],
-        serif: ['"Prata"', ...defaultTheme.fontFamily.serif],
+        sans: ['"Roboto"', ...defaultTheme.fontFamily.sans],
+        serif: ['"Merriweather"', ...defaultTheme.fontFamily.serif],
       },
       keyframes: {
         fadeIn: {

@@ -5,25 +5,26 @@
 {% endblock title %}
 {% block content %}
   <main>
-    <section class="md:flex-row gap-y-5 lg:p-10 2xl:p-16 bg-primary md:justify-between flex flex-col items-center p-5 py-8 text-center">
-      <h1 class="lg:text-5xl font-serif text-3xl">Chester Blogs</h1>
+    <section class="flex flex-col items-center justify-between gap-y-5 p-5 py-8 text-center md:flex-row md:p-10 lg:p-16 bg-primary">
+      <h1 class="text-3xl font-serif lg:text-5xl">Chester Blogs</h1>
     </section>
-    <section class="px-5 md:px-8 py-16">
+    <section class="px-5 py-16 md:px-8">
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:px-20 lg:gap-x-8 gap-y-8">
         {% for blog in blogslist %}
-          <div class="relative grid border border-accent">
+          <div class="relative border border-accent">
             {% if blog.image %}
-              <a href="#" class="group aspect-[3/2] relative">
+              <a href="{% url 'blog-detail' slug=blog.slug %}"
+                 class="block aspect-w-3 aspect-h-2 overflow-hidden">
                 <img src="{{ blog.image.url }}"
-                     alt="{{ member.name }}"
-                     class="object-cover w-full h-auto"
+                     alt="{{ blog.title }}"
+                     class="object-cover w-full h-full"
                      width="100"
                      height="auto" />
               </a>
             {% endif %}
             <div class="p-5 space-y-3 bg-base-100 sm:py-10">
               <a href="{% url 'blog-detail' slug=blog.slug %}"
-                 class="font-serif text-xl hover:text-accent">{{ blog.title }}</a>
+                 class="text-xl font-serif hover:text-accent">{{ blog.title }}</a>
               <div class="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg"
                      fill="none"
@@ -39,7 +40,7 @@
           </div>
         {% endfor %}
       </div>
-      <div class="flex justify-center item-center gap-5 text-lg font-serif mt-8 ">
+      <div class="flex items-center justify-center gap-5 mt-8 text-lg font-serif">
         {% for num in blogslist.paginator.page_range %}
           {% if num == blogslist.number %}
             <span class="underline decoration-accent">{{ num }}</span>

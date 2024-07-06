@@ -1,13 +1,12 @@
 {% extends "layouts/base.html" %}
-{% load markdown_extras %}
-{% load static %}
+{% load markdown_extras static %}
 {% block title %}
   {{ blog.title }}
 {% endblock title %}
 {% block content %}
   <main>
-    <section class="bg-primary">
-      <div class="flex flex-col items-center gap-y-5 p-5 py-8 text-center lg:p-10 2xl:p-16">
+    <section class="bg-primary py-8 lg:py-16">
+      <div class="container mx-auto flex flex-col items-center gap-5 p-5 text-center lg:p-10">
         <div class="text-sm lg:text-base">
           <a href="{% url 'blog-index' %}" class="hover:text-accent">Blogs</a>
           <span class="px-1 font-mono">>></span>{{ blog.title }}
@@ -16,67 +15,60 @@
       </div>
     </section>
     {% if blog.image %}
-      <div class="mx-auto lg:-translate-y-20 -translate-y-10 px-[10%] md:max-w-[70%]">
+      <div class="container mx-auto -translate-y-10 lg:-translate-y-20 px-[10%] md:max-w-[70%]">
         <img src="{{ blog.image.url }}"
              alt="{{ member.name }}"
-             width="300"
-             height="auto"
-             class="aspect-[3/2] w-full border">
+             class="aspect-[3/2] w-full border"
+             width="100"
+             height="auto">
       </div>
     {% endif %}
-    <section class="grid gap-y-10 p-5 sm:p-8 md:px-10 lg:grid-cols-6 lg:gap-8">
-      <div class="col-span-4 mx-auto max-w-5xl">
-        <div class="text-accent mx-auto flex flex-col items-center md:flex-row md:gap-5">
-          <div class="mx-auto flex w-fit items-center justify-center gap-3 text-xl">
-            <div>
-              <svg xmlns="http://www.w3.org/2000/svg"
-                   viewBox="0 0 24 24"
-                   fill="currentColor"
-                   class="h-6 w-6">
-                <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z" clip-rule="evenodd" />
-              </svg>
-            </div>
+    <section class="container mx-auto grid gap-10 p-5 sm:p-8 md:px-10 lg:grid-cols-8 lg:gap-10">
+      <div class="col-span-6">
+        <div class="text-accent flex flex-col items-center md:flex-row md:gap-5">
+          <div class="flex items-center gap-3 text-xl">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24"
+                 fill="currentColor"
+                 class="h-6 w-6">
+              <path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z" clip-rule="evenodd" />
+            </svg>
             <p>{{ blog.pub_date|date:"F d, Y" }}</p>
           </div>
         </div>
         <hr class="border-accent my-10">
-        <div>
-          <div class="space-y-5 lg:text-lg">{{ blog.content | markdown | safe }}</div>
-        </div>
+        <div class="space-y-5 lg:text-lg">{{ blog.content | markdown | safe }}</div>
       </div>
       <div class="col-span-2">
-        <h2 class="mt-5 font-serif text-2xl">Social Media</h2>
-        <div class="mb-10 flex items-center">
+        <h2 class="mt-5 mb-3 font-serif text-2xl">Social Media</h2>
+        <div class="flex items-center gap-5 mb-10 ml-5">
           <a href="https://www.facebook.com/chesterjeffa"
              target="_blank"
-             class="p-5 hover:-translate-y-2">
-            <svg class="size-6 md:size-8"
+             class="hover:-translate-y-2 transition-transform">
+            <svg class="w-6 h-6 md:w-8 md:h-8"
                  viewBox="0 0 512 512"
                  xmlns="http://www.w3.org/2000/svg">
-              <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" fill="#88AF9D">
-              </path>
+              <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" fill="#7FA7B8" />
             </svg>
             <span class="sr-only">Facebook</span>
           </a>
           <a href="https://www.instagram.com/chesterjeffancheta"
              target="_blank"
-             class="p-5 hover:-translate-y-2">
-            <svg class="size-6 md:size-8"
+             class="hover:-translate-y-2 transition-transform">
+            <svg class="w-6 h-6 md:w-8 md:h-8"
                  viewBox="0 0 512 512"
                  xmlns="http://www.w3.org/2000/svg">
-              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" fill="#88AF9D">
-              </path>
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" fill="#7FA7B8" />
             </svg>
             <span class="sr-only">Instagram</span>
           </a>
           <a href="https://www.youtube.com/channel/UCiJ_XK1TJxZt96rSAcwYxXA"
              target="_blank"
-             class="p-5 hover:-translate-y-2">
-            <svg class="size-6 md:size-8"
+             class="hover:-translate-y-2 transition-transform">
+            <svg class="w-6 h-6 md:w-8 md:h-8"
                  viewBox="0 0 512 512"
                  xmlns="http://www.w3.org/2000/svg">
-              <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" fill="#88AF9D">
-              </path>
+              <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" fill="#7FA7B8" />
             </svg>
             <span class="sr-only">YouTube</span>
           </a>
@@ -87,12 +79,12 @@
             <li class="grid grid-cols-6 gap-5">
               {% if post.image %}
                 <a href="{% url 'blog-detail' post.slug %}"
-                   class="col-span-3 object-cover sm:col-span-2 xl:col-span-3">
+                   class="col-span-3 sm:col-span-2 xl:col-span-3">
                   <img src="{{ post.image.url }}"
                        alt="{{ post.title }}"
-                       width="auto"
-                       height="auto"
-                       class="aspect-[5/3] w-full border object-cover">
+                       class="aspect-[5/3] w-full border object-cover"
+                       width="100"
+                       height="auto">
                 </a>
               {% endif %}
               <div class="col-span-3 sm:col-span-4 xl:col-span-3">
