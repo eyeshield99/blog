@@ -21,6 +21,7 @@ django-storages = "^1.14.3"
 django-cors-headers = "^4.4.0"
 psycopg = "^3.2.1"
 psycopg-binary = "^3.2.1"
+django-summernote = "^0.8.20.0"
 
 
 [build-system]

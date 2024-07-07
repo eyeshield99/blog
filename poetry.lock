@@ -15,6 +15,24 @@ files = [
 tests = ["mypy (>=0.800)", "pytest", "pytest-asyncio"]
 
 [[package]]
+name = "bleach"
+version = "6.1.0"
+description = "An easy safelist-based HTML-sanitizing tool."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "bleach-6.1.0-py3-none-any.whl", hash = "sha256:3225f354cfc436b9789c66c4ee030194bee0568fbf9cbdad3bc8b5c26c5f12b6"},
+    {file = "bleach-6.1.0.tar.gz", hash = "sha256:0a31f1837963c41d46bbf1331b8778e1308ea0791db03cc4e7357b97cf42a8fe"},
+]
+
+[package.dependencies]
+six = ">=1.9.0"
+webencodings = "*"
+
+[package.extras]
+css = ["tinycss2 (>=1.1.0,<1.3)"]
+
+[[package]]
 name = "boto3"
 version = "1.34.139"
 description = "The AWS SDK for Python"
@@ -199,6 +217,23 @@ google = ["google-cloud-storage (>=1.27)"]
 libcloud = ["apache-libcloud"]
 s3 = ["boto3 (>=1.4.4)"]
 sftp = ["paramiko (>=1.15)"]
+
+[[package]]
+name = "django-summernote"
+version = "0.8.20.0"
+description = "Summernote plugin for Django"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-summernote-0.8.20.0.tar.gz", hash = "sha256:52e9b12438ed9eac0d77729f758f2aae06e468b5cbce133e24100d58ae4e43a8"},
+]
+
+[package.dependencies]
+bleach = "*"
+django = "*"
+
+[package.extras]
+dev = ["django-dummy-plug", "pytest", "pytest-django"]
 
 [[package]]
 name = "environs"
@@ -671,7 +706,18 @@ h2 = ["h2 (>=4,<5)"]
 socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
+[[package]]
+name = "webencodings"
+version = "0.5.1"
+description = "Character encoding aliases for legacy web content"
+optional = false
+python-versions = "*"
+files = [
+    {file = "webencodings-0.5.1-py2.py3-none-any.whl", hash = "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"},
+    {file = "webencodings-0.5.1.tar.gz", hash = "sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "c2f1771b2f95919df65e4bbe206b4f788ed5d39c931ee5aa3c62bc4bb6fc2401"
+content-hash = "6f09ffee34a34e1228de5f018a46c7f63ec2362eaee2f47e593b251670925a89"
