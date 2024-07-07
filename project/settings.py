@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # Third-party
     "corsheaders",
     "storages",
+    "django_summernote",
     # Local
     "blogs",
 ]

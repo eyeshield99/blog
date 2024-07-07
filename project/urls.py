@@ -23,4 +23,5 @@ from django.urls import include, path
 urlpatterns = [
     path("chester-world/", admin.site.urls),
     path("", include("blogs.urls")),
+    path("summernote/", include("django_summernote.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
