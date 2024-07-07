@@ -17,10 +17,10 @@
     {% if blog.image %}
       <div class="container mx-auto -translate-y-10 lg:-translate-y-20 px-[10%] md:max-w-[70%]">
         <img src="{{ blog.image.url }}"
-             alt="{{ member.name }}"
-             class="aspect-[3/2] w-full border"
-             width="100"
-             height="auto">
+             alt="{{ blog.title }}"
+             class="w-full border fixed-size-image"
+             height="auto"
+             width="100">
       </div>
     {% endif %}
     <section class="container mx-auto grid gap-10 p-5 sm:p-8 md:px-10 lg:grid-cols-8 lg:gap-10">
