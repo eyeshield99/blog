@@ -924,6 +924,15 @@ footer li:hover {
      object-position: center;
 }
 
+.fixed-size-card-image {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
 .blog-content h3 {
   font-size: 1.875rem;
   line-height: 2.25rem;
