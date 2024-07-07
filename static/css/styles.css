@@ -924,16 +924,15 @@ footer li:hover {
      object-position: center;
 }
 
-.blog-content h2 {
+.blog-content h3 {
   font-size: 1.875rem;
   line-height: 2.25rem;
-  font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(246 246 246 / var(--tw-text-opacity));
 }
 
 @media (min-width: 1024px) {
-  .blog-content h2 {
+  .blog-content h3 {
     font-size: 2.25rem;
     line-height: 2.5rem;
   }
