@@ -41,7 +41,7 @@ footer li {
 }
 
 .blog-content h2 {
-  @apply text-3xl font-serif lg:text-4xl font-bold;
+  @apply text-3xl lg:text-4xl font-bold text-base-content;
 }
 
 .blog-content ol {
