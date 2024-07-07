@@ -924,6 +924,25 @@ footer li:hover {
      object-position: center;
 }
 
+.blog-content h2 {
+  font-family: "Merriweather", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .blog-content h2 {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.blog-content ol {
+  list-style-position: inside;
+  list-style-type: decimal;
+}
+
 .hover\:-translate-y-2:hover {
   --tw-translate-y: -0.5rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
